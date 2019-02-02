@@ -8,6 +8,6 @@ class ShiritoriMessageChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    ActionCable.server.broadcast 'shiritori_message_channel', message: data['message']
+    ShiritoriMessage.create! body: data['message']
   end
 end

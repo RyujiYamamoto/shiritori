@@ -1,7 +1,12 @@
-<div id='shiritori_messages'></div>
+<div id='shiritori_messages'>
+  <% @shiritori_messages.each do |shiritori_message| %>
+    <div><%= shiritori_message.body %></div>
+  <% end %>
+</div>
+
 <br/>
 <form>
-    <label>
-        しりとる：<input type="text" data-behavior="speak_shiritori_messages">
-    </label>
+  <label>
+    しりとる：<input type="text" data-behavior="speak_shiritori_messages">
+  </label>
 </form>
