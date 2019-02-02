@@ -1,0 +1,2 @@
+class ShiritoriMessage < ApplicationRecord
+end
