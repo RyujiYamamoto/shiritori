@@ -5,5 +5,4 @@ class ShiritoriMessagesControllerTest < ActionDispatch::IntegrationTest
     get shiritori_messages_index_url
     assert_response :success
   end
-
 end
