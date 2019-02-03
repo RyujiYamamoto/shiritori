@@ -8,6 +8,6 @@ class ShiritoriMessageChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    ShiritoriMessage.create! body: data['message']
+    ShiritoriMessage.create! user_id: current_user.id, body: data['message']
   end
 end

@@ -1,6 +1,6 @@
 <div id='shiritori_messages'>
   <% @shiritori_messages.each do |shiritori_message| %>
-    <div><%= shiritori_message.body %></div>
+    <div><%= "#{shiritori_message.user_name}:#{shiritori_message.body}" %></div>
   <% end %>
 </div>
 
