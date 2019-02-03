@@ -10,6 +10,8 @@
   <%= @user.email %>
 </p>
 
+<%= link_to 'しりとりはじめる', shiritori_messages_index_path %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'User list', users_path %> |
 <% if logged_in? %>
