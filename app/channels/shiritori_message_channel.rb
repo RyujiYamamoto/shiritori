@@ -9,9 +9,7 @@ class ShiritoriMessageChannel < ApplicationCable::Channel
 
   def speak(data)
     @message = ShiritoriMessage.new user_id: current_user.id, body: data['message']
-    puts(data['message'])
-    puts(@message.user_id)
-    puts(@message.body)
-    @message.save!
+    @last_message = ShiritoriMessage.last
+    @message.save! if @last_message.body[-1].eql?(@message.body[0])
   end
 end
