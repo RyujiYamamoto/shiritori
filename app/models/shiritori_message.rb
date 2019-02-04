@@ -1,5 +1,5 @@
 class ShiritoriMessage < ApplicationRecord
-    validates :message, presence: true
+    validates :body, presence: true
     after_create_commit {ShiritoriMessageBroadcastJob.perform_later self}
     
     belongs_to :user
@@ -7,4 +7,7 @@ class ShiritoriMessage < ApplicationRecord
         return '名無しり' if user_id.blank?
         user.name
     end
+    
+
+        
 end

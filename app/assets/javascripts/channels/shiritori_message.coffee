@@ -6,7 +6,7 @@ App.shiritori_message = App.cable.subscriptions.create "ShiritoriMessageChannel"
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $('#shiritori_messages').append '<div>' +data['user_name'] + ':' + data['message'] + '</div>'
+    $('#shiritori_messages').append '<div>' + data['user_name'] + ':' + data['message'] + '</div>'
 
   speak:(message) ->
     @perform 'speak', message: message
