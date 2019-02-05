@@ -1,4 +1,7 @@
 <h1>log in</h1>
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
 <%= form_for(:session, url: login_path) do |f| %>
   <div class="field">
     <%= f.label :email %>
