@@ -4,7 +4,7 @@ $(document).on 'turbolinks:load', ->
 
   App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: messages.data('room_id') },
     received: (data) -> 
-      $('#messages').append '<div>' + data['user_name'] + ': ' + data['message'] + '</div>'
+      $('#messages').append data['message']
 
     speak: (message) ->
       @perform 'speak', message: message

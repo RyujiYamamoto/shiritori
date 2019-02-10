@@ -1,8 +1,10 @@
 <h1><%= @room.name %></h1>
 <div id='messages', data-room_id="<%= @room.id %>">
-  <% @messages.each do |message| %>
-    <div><%= "#{message.user_name}: #{message.body}" %></div>
-  <% end %>
+  <%# <% @messages.each do |message| %>
+  <%#   <div><%= "#{message.user_name}: #{message.body}" %>
+  <%#　　　　</div>
+  <%# <% end %>
+  <%= render :partial => "message", :collection => @messages %>
 </div>
 <div class="input">
   <form>
