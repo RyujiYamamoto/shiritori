@@ -15,9 +15,10 @@
     <% @rooms.each do |room| %>
       <tr>
         <td><%= room.name %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= User.find_by(id: room.host_user_id).name %></td>
+        <td><%= link_to 'ここでしりとる', room %></td>
+        <td><%= link_to 'へんしゅう', edit_room_path(room) %></td>
+        <td><%= link_to 'へやをけす', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Room', new_Room_path %>
+<%= link_to 'るーむ　さくせい', new_room_path %>
+<%= link_to 'まいぺーじにもどる', user_url(current_user.id) %>
+
