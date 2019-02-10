@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  
   def show
     @room = Room.find(params[:id])
     @messages = @room.shiritori_messages
