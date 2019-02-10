@@ -6,6 +6,7 @@ class ShiritoriMessagesController < ApplicationController
     end
     @shiritori_messages = ShiritoriMessage.all
   end
+  
 end
 
 

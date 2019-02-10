@@ -1,0 +1,12 @@
+<h1>Rooms#show</h1>
+<div id='messages'>
+  <% @shiritori_messages.each do |message| %>
+    <div><%= "#{message.user_name}:#{message.body}" %></div>
+  <% end %>
+</div>
+<div class="input">
+  <form>
+    <label>しりとる</label>
+    <input type="text" data-behavior="room_speaker">
+  </form>
+</div>
