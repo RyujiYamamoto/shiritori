@@ -1,13 +1,10 @@
-jQuery(document).on 'turbolinks:load', ->
+$(document).on 'turbolinks:load', ->
   # viewの<div id="messages">から受け取る
-  if $('#messages').length > 0
-    messages = $('#messages')
-
-
+  messages = $('#messages') if $('#messages').length > 0
 
   App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: messages.data('room_id') },
     received: (data) -> 
-      $('#messages').append '<div>' + data['user_name'] + ':' + data['message'] + '</div>'
+      $('#messages').append '<div>' + data['user_name'] + ': ' + data['message'] + '</div>'
 
     speak: (message) ->
       @perform 'speak', message: message

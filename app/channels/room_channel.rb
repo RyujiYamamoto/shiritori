@@ -1,4 +1,4 @@
-class ShiritoriMessageChannel < ApplicationCable::Channel
+class RoomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "room_channel_#{params['room_id']}"
   end
@@ -10,7 +10,7 @@ class ShiritoriMessageChannel < ApplicationCable::Channel
   def speak(data)
     @message = ShiritoriMessage.new(user_id: current_user.id, body: data['message'],
                                       room:Room.find(params['room_id']))
-    @last_message = ShiritoriMessage.last
-    @message.save! if @last_message.body[-1].eql?(@message.body[0])
+    @last_message = Room.find(params['room_id']).shiritori_messages.last
+    @message.save! if (@last_message.nil? || @last_message.body[-1].eql?(@message.body[0]) )
   end
 end
