@@ -10,11 +10,16 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'しりとりルーム作成', new_room_path %>
-<%= link_to 'しりとりルーム一覧', rooms_path %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'User list', users_path %> |
-<% if logged_in? %>
-  <%= link_to 'Logout', logout_path, method: :delete %>
-<% end %>
+<p>
+  <div>ルームメニュー</div>
+  <%= link_to 'しりとりルーム作成', new_room_path %>
+  <%= link_to 'しりとりルーム一覧', rooms_path %>
+</p>
+<p>
+  <div>ユーザメニュー</div>  
+  <%= link_to 'ユーザー情報編集', edit_user_path(@user) %> |
+  <%= link_to '一覧', users_path %> |
+  <% if logged_in? %>
+    <%= link_to 'ログアウト', logout_path, method: :delete %>
+  <% end %>
+</p>

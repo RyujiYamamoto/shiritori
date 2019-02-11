@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>しりとりスト一覧</h1>
 
 <table>
   <thead>
@@ -16,14 +16,18 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'しりとりスト情報', user %></td>
+        <td><%= link_to '編集', edit_user_path(user) %></td>
+        <td><%= link_to '除籍', user, method: :delete, data: { confirm: 'ほんとうに じょせき する?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
+<p>
+  <%= link_to 'しりとりスト登録', new_user_path %>
+</p>
+<p>
+  <%= link_to 'しりとりルーム一覧へ', rooms_path %>
+</p>

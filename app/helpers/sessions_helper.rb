@@ -11,6 +11,13 @@ module SessionsHelper
     cookies.permanent.signed[:user_id] = user.id
   end
   
+  def let_log_in_unless_logged_in(path)
+    unless logged_in?
+      session[:callback] = path
+      return redirect_to login_path
+    end
+  end
+  
   def log_out
     reset_session
     @current_user = nil

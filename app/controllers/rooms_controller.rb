@@ -2,19 +2,23 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
   
   def show
+    let_log_in_unless_logged_in(room_path(params[:id]))
     @room = Room.find(params[:id])
     @messages = @room.shiritori_messages
   end
   
   def index
+    let_log_in_unless_logged_in(rooms_path)
     @rooms = Room.all
   end
 
   def new
+    let_log_in_unless_logged_in(new_room_path)
     @room = Room.new
   end
 
   def edit
+    let_log_in_unless_logged_in(edit_room_path(params[:id]))
   end
 
   def create

@@ -11,6 +11,8 @@ class RoomChannel < ApplicationCable::Channel
     @message = ShiritoriMessage.new(user_id: current_user.id, body: data['message'],
                                       room:Room.find(params['room_id']))
     @last_message = Room.find(params['room_id']).shiritori_messages.last
-    @message.save! if (@last_message.nil? || @last_message.body[-1].eql?(@message.body[0]) )
+    if (@last_message.nil? || @last_message.body[-1].eql?(@message.body[0]) )
+      @message.save! 
+    end
   end
 end
