@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>ルーム名</th>
-      <th>作成しりとりスト</th>
+      <th>しりとりホスト</th>
+      <th>しりとりゲスト</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
       <tr>
         <td><%= room.name %></td>
         <td><%= User.find_by(id: room.host_user_id).name %></td>
+        <td><%= User.find_by(id: room.guest_user_id).nil? ? "-" : User.find_by(id: room.guest_user_id).name %></td>
         <td><%= link_to 'ここでしりとる', room %></td>
         <td><%= link_to 'へんしゅう', edit_room_path(room) %></td>
         <td><%= link_to 'へやをけす', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>

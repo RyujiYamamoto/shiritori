@@ -4,6 +4,14 @@ class RoomsController < ApplicationController
   def show
     let_log_in_unless_logged_in(room_path(params[:id]))
     @room = Room.find(params[:id])
+    if (@room.guest_user_id.nil? && @room.host_user_id != current_user.id)
+      @room.update!(guest_user_id: current_user.id)
+    elsif (!@room.guest_user_id.nil? && !(@room.guest_user_id == current_user.id || @room.host_user_id == current_user.id))
+      respond_to do |format|
+        format.html { redirect_to rooms_path, notice: 'この部屋には、すでにしりとりゲストが入室済みです。' }
+        format.json { render :index, status: :ok, location: rooms_path }
+      end
+    end
     @messages = @room.shiritori_messages
   end
   

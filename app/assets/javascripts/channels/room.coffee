@@ -11,6 +11,13 @@ $(document).on 'turbolinks:load', ->
 
   $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
     if event.keyCode is 13
+      #if !is_shiritori(event.target.value)
+      #  alert "しりとりになってません……"
+      #else
       App.room.speak event.target.value
       event.target.value = ''
       event.preventDefault()
+        
+#is_shiritori: (message) -> 
+#    target = $('.message').last().find('p').slice(-1)
+#    message[0] == target

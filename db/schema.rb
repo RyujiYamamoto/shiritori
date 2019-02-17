@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_131353) do
+ActiveRecord::Schema.define(version: 2019_02_11_034710) do
 
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "host_user_id"
+    t.integer "guest_user_id"
   end
 
   create_table "shiritori_messages", force: :cascade do |t|
