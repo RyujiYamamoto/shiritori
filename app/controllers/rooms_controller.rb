@@ -13,6 +13,8 @@ class RoomsController < ApplicationController
       end
     end
     @messages = @room.shiritori_messages
+    #アラート出力のため、ログインユーザのインスタンスをviewに渡しておく
+    @current_user = current_user
   end
   
   def index

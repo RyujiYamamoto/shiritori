@@ -21,7 +21,7 @@ class RoomChannel < ApplicationCable::Channel
       (@last_message.body[-1].eql?(@message.body[0]) && @last_message.user_id != current_user.id) )
       @message.save!
     else
-      logger.debug("しりとりになってないよ！")
+      ActionCable.server.broadcast "alert_channel_#{current_user.id}", message: 'しりとりになってないよ！' 
     end
   end
 end

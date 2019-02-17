@@ -10,4 +10,5 @@ class ShiritoriMessageBroadcastJob < ApplicationJob
     ApplicationController.renderer.render(partial: "rooms/message", 
                                           locals: { message: message })
   end
+      
 end

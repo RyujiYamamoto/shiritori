@@ -10,9 +10,4 @@ class ShiritoriMessage < ApplicationRecord
         return '名無しり' if user_id.blank?
         user.name
     end
-    
-    
-    
-
-        
 end
