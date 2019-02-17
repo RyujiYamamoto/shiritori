@@ -18,6 +18,7 @@ class RoomChannel < ApplicationCable::Channel
                                       room:Room.find(params['room_id']))
     if !@message.valid?     
       ActionCable.server.broadcast "alert_channel_#{current_user.id}", message: @message.errors.full_messages
+      return
     end
     
     @last_message = Room.find(params['room_id']).shiritori_messages.last
