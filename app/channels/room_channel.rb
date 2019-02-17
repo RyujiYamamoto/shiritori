@@ -24,7 +24,7 @@ class RoomChannel < ApplicationCable::Channel
     @last_message = Room.find(params['room_id']).shiritori_messages.last
     if @last_message.nil? then
       @message.save!
-      return
+     return
     end
     
     if @last_message.user_id == current_user.id then
