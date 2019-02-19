@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ルーム制のチャットアプリに以下の制限を設けて、
+しりとりを行うようにしました。
+・ ルームに入れるのは２名のみ
+・ 続けてメッセージ送信することはできない
+・ 発言の最初の1文字は、最後の発言の末尾１文字と同じであること
 
-Things you may want to cover:
+## 使い方
 
-* Ruby version
+このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
+その後、次のコマンドで必要になる RubyGems をインストールします。
 
-* System dependencies
+```
+$ bundle install --without production
+```
 
-* Configuration
+その後、データベースへのマイグレーションを実行します。
 
-* Database creation
+```
+$ rails db:migrate
+```
 
-* Database initialization
+そして、以下のコマンドでサーバーを立ち上げます。
 
-* How to run the test suite
+```
+$ rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+うまく動かない場合は、yamamoto.ryuji.dev@gmail.com
+までご連絡ください。
